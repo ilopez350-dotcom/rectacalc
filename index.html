@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RectaCalc | Área del rectángulo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <svg class="header-diagram" viewBox="0 0 150 115" role="img" aria-label="Rectángulo con base y altura">
+        <rect x="12" y="10" width="104" height="62" rx="1" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M12 84 H116 M12 78 L5 84 L12 90 M116 78 L123 84 L116 90" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M132 10 V72 M126 16 L132 10 L138 16 M126 66 L132 72 L138 66" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <text x="64" y="106" text-anchor="middle" font-size="20" font-style="italic" fill="currentColor">b</text>
+        <text x="141" y="45" text-anchor="middle" font-size="20" font-style="italic" fill="currentColor">h</text>
+      </svg>
+      <div class="hero-copy">
+        <h1>RectaCalc</h1>
+        <p>Calcula el área de un rectángulo</p>
+      </div>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Mostrar información" aria-expanded="false">☰</button>
+      <div class="menu-panel" id="menuPanel" hidden>
+        <strong>¿Cómo funciona?</strong>
+        <p>Escribe la base y la altura, y pulsa “Calcular área”.</p>
+      </div>
+    </header>
+
+    <section class="panel" aria-labelledby="formTitle">
+      <h2 id="formTitle"><span class="round-icon" aria-hidden="true">✎</span> Ingresa los datos</h2>
+      <form id="areaForm" novalidate>
+        <div class="field-row">
+          <label for="base">Base (b):</label>
+          <div class="input-unit">
+            <input id="base" name="base" type="number" min="0" step="any" placeholder="Ej. 5" inputmode="decimal" required>
+            <span>cm</span>
+          </div>
+        </div>
+        <div class="field-row">
+          <label for="height">Altura (h):</label>
+          <div class="input-unit">
+            <input id="height" name="height" type="number" min="0" step="any" placeholder="Ej. 3" inputmode="decimal" required>
+            <span>cm</span>
+          </div>
+        </div>
+        <p class="error-message" id="errorMessage" role="alert" aria-live="polite"></p>
+        <div class="actions">
+          <button class="button button-primary" type="submit"><span aria-hidden="true">▦</span> Calcular área</button>
+          <button class="button button-secondary" id="clearButton" type="button"><span aria-hidden="true">◇</span> Limpiar datos</button>
+        </div>
+      </form>
+
+      <section class="result-card" aria-labelledby="resultTitle" aria-live="polite">
+        <h2 id="resultTitle"><span class="check-icon" aria-hidden="true">✓</span> Resultado</h2>
+        <div class="result-content">
+          <div class="formula-box">
+            <p class="formula">Área = <i>b</i> × <i>h</i></p>
+            <output id="areaResult" for="base height">— cm²</output>
+            <p class="calculation" id="calculationText">Ingresa los valores para comenzar.</p>
+          </div>
+          <svg class="result-diagram" viewBox="0 0 200 150" role="img" aria-label="Diagrama de un rectángulo con base b y altura h">
+            <rect x="15" y="12" width="135" height="85" fill="#cbd0ff" stroke="#302078" stroke-width="2.5"/>
+            <path d="M15 116 H150 M15 110 L8 116 L15 122 M150 110 L157 116 L150 122" fill="none" stroke="#302078" stroke-width="2.2"/>
+            <path d="M169 12 V97 M163 18 L169 12 L175 18 M163 91 L169 97 L175 91" fill="none" stroke="#302078" stroke-width="2.2"/>
+            <text x="82" y="140" text-anchor="middle" font-size="20" font-style="italic" fill="#302078">b</text>
+            <text x="184" y="58" text-anchor="middle" font-size="20" font-style="italic" fill="#302078">h</text>
+          </svg>
+        </div>
+      </section>
+    </section>
+    <footer>RectaCalc · Herramienta educativa para estudiar geometría</footer>
+  </main>
+</body>
+</html>
